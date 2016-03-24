@@ -59,7 +59,7 @@ namespace Generator
 
         private void voicebox_SelectedValueChanged(object sender, EventArgs e)
         {
-            VoiceName = voicebox.Text;            
+            VoiceName = voicebox.Text;
             reader.SelectVoice(VoiceName);
         }
 
