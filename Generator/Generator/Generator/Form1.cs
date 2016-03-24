@@ -17,12 +17,10 @@ namespace Generator
 {
     public partial class Form1 : Form
     {
-        SpeechSynthesizer reader;
-
-        List<string> items = new List<string>();
         string CurrentFile = "test";
+        SpeechSynthesizer reader;
+        List<string> items = new List<string>();
         string path = "../../../../../bin/render/";
-
         string VoiceName = "david";
         public Form1()
         {
@@ -70,8 +68,8 @@ namespace Generator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            reader = new SpeechSynthesizer(); //create new object
-            reader.SelectVoice(VoiceName);
+            //reader = new SpeechSynthesizer(); //create new object
+            //reader.SelectVoice(VoiceName);
             string sText = textBox1.Text;
             reader.SpeakAsync(sText);
             textBox2.Text = "SPEAKING";
@@ -82,7 +80,7 @@ namespace Generator
             textBox2.Text = "IDLE";
             File.WriteAllLines(path + CurrentFile + "/sequence.txt", items);
             File.WriteAllText(path + CurrentFile + "/input.txt", textBox1.Text);
-            reader.Dispose();
+            //reader.Dispose();
         } 
     }
 }
