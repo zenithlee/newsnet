@@ -24,17 +24,13 @@ namespace Generator
         string VoiceName = "david";
         public Form1()
         {
-            Console.WriteLine(Directory.GetCurrentDirectory());
-            InitializeComponent();
-            reader = new SpeechSynthesizer(); //create new object
-            //System.Speech.AudioFormat.SpeechAudioFormatInfo info;            
             Directory.CreateDirectory(path + CurrentFile);
-            reader.SetOutputToWaveFile(path + CurrentFile + "/audio.wav");
-            reader.SpeakCompleted += new EventHandler<SpeakCompletedEventArgs>(reader_SpeakCompleted);
-            reader.VisemeReached += new EventHandler<VisemeReachedEventArgs>(reader_VisemeReached);            
-            reader.SpeakProgress += reader_SpeakProgress;
+            Console.WriteLine(Directory.GetCurrentDirectory());
 
-
+            InitializeComponent();
+            
+            SetupReader();
+           
             ReadOnlyCollection<InstalledVoice> voices = reader.GetInstalledVoices();
             foreach (InstalledVoice voice in voices)
             {
@@ -43,6 +39,15 @@ namespace Generator
 
             voicebox.SelectedValueChanged +=voicebox_SelectedValueChanged;
             voicebox.Text = voices[0].VoiceInfo.Name;
+        }
+
+        void SetupReader()
+        {
+            reader = new SpeechSynthesizer(); //create new object
+            reader.SetOutputToWaveFile(path + CurrentFile + "/audio.wav");
+            reader.SpeakCompleted += new EventHandler<SpeakCompletedEventArgs>(reader_SpeakCompleted);
+            reader.VisemeReached += new EventHandler<VisemeReachedEventArgs>(reader_VisemeReached);
+            reader.SpeakProgress += reader_SpeakProgress;
         }
 
         void reader_SpeakProgress(object sender, SpeakProgressEventArgs e)
@@ -54,7 +59,7 @@ namespace Generator
 
         private void voicebox_SelectedValueChanged(object sender, EventArgs e)
         {
-            VoiceName = voicebox.Text;
+            VoiceName = voicebox.Text;            
             reader.SelectVoice(VoiceName);
         }
 
@@ -67,9 +72,7 @@ namespace Generator
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            //reader = new SpeechSynthesizer(); //create new object
-            //reader.SelectVoice(VoiceName);
+        {   
             string sText = textBox1.Text;
             reader.SpeakAsync(sText);
             textBox2.Text = "SPEAKING";
@@ -77,10 +80,10 @@ namespace Generator
 
         void reader_SpeakCompleted(object sender, SpeakCompletedEventArgs e)
         {
-            textBox2.Text = "IDLE";
+            textBox2.Text = "IDLE. Wrote to :" + path + CurrentFile;
             File.WriteAllLines(path + CurrentFile + "/sequence.txt", items);
-            File.WriteAllText(path + CurrentFile + "/input.txt", textBox1.Text);
-            //reader.Dispose();
-        } 
+            File.WriteAllText(path + CurrentFile + "/input.txt", textBox1.Text);            
+        }
+
     }
 }
