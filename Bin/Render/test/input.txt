@@ -1,0 +1,1 @@
+Here are some of the basic operations. You can also change voice, volume , rate and other parameters. You can also save the spoken audio stream directly into a "wave" file.
