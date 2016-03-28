@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dxsprite version="2.2" width="640" height="360">
+  <image src="00000.png" />
+  <image src="00001.png" />
+  <image src="00002.png" />
+  <image src="00003.png" />
+  <image src="00004.png" />
+  <image src="00005.png" />
+  <image src="00006.png" />
+  <image src="00007.png" />
+  <image src="00008.png" />
+  <image src="00009.png" />
+  <image src="00010.png" />
+  <image src="00011.png" />
+  <image src="00012.png" />
+  <image src="00013.png" />
+  <image src="00014.png" />
+  <image src="00015.png" />
+  <image src="00016.png" />
+  <image src="00017.png" />
+  <image src="00018.png" />
+  <image src="00019.png" />
+  <image src="00020.png" />
+  <image src="00021.png" />
+  <image src="00022.png" />
+  <image src="00023.png" />
+  <image src="00024.png" />
+  <image src="00025.png" />
+  <image src="00026.png" />
+  <image src="00027.png" />
+  <image src="00028.png" />
+  <image src="00029.png" />
+  <image src="00030.png" />
+  <animation id="base" duration="1" autoplay="yes" loop="no">
+    <frame imageindex="0" duration="0.100000001490116" />
+    <frame imageindex="1" duration="0.100000001490116" />
+    <frame imageindex="2" duration="0.100000001490116" />
+    <frame imageindex="3" duration="0.100000001490116" />
+    <frame imageindex="4" duration="0.100000001490116" />
+    <frame imageindex="5" duration="0.100000001490116" />
+    <frame imageindex="6" duration="0.100000001490116" />
+    <frame imageindex="7" duration="0.100000001490116" />
+    <frame imageindex="8" duration="0.100000001490116" />
+    <frame imageindex="9" duration="0.100000001490116" />
+    <frame imageindex="10" duration="0.100000001490116" />
+    <frame imageindex="11" duration="0.100000001490116" />
+    <frame imageindex="12" duration="0.100000001490116" />
+    <frame imageindex="13" duration="0.100000001490116" />
+    <frame imageindex="14" duration="0.100000001490116" />
+    <frame imageindex="15" duration="0.100000001490116" />
+    <frame imageindex="16" duration="0.100000001490116" />
+    <frame imageindex="17" duration="0.100000001490116" />
+    <frame imageindex="18" duration="0.100000001490116" />
+    <frame imageindex="19" duration="0.100000001490116" />
+    <frame imageindex="20" duration="0.100000001490116" />
+    <frame imageindex="21" duration="0.100000001490116" />
+    <frame imageindex="22" duration="0.100000001490116" />
+    <frame imageindex="23" duration="0.100000001490116" />
+    <frame imageindex="24" duration="0.100000001490116" />
+    <frame imageindex="25" duration="0.100000001490116" />
+    <frame imageindex="26" duration="0.100000001490116" />
+  </animation>
+</dxsprite>
