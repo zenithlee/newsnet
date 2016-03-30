@@ -32,7 +32,6 @@
     {
         CurrentProject = path + CurrentFile;
         Directory.CreateDirectory(CurrentProject);
-
           
         Console.WriteLine(Directory.GetCurrentDirectory());
 
@@ -232,6 +231,11 @@
             FileInfo fi = new FileInfo(path);
             openFileDialog1.InitialDirectory = fi.FullName;
             DialogResult result = openFileDialog1.ShowDialog();
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            
         }
     }
     }
