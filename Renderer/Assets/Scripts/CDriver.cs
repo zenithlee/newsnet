@@ -16,9 +16,10 @@ public class CDriver : MonoBehaviour {
 
   public GameObject StrapLine;
   public GameObject Intro;
+  public GameObject Marker;
 
-  string BasePath = "../Output/";
-  string RenderBasePath = "../Output/";
+  string BasePath = "../../NewsNet_Bin/Output/";
+  string RenderBasePath = "../../NewsNet_Bin/Output/";
   public string CurrentFile = "test";
   string CurrentProject;
   int msPerFrame = 40;
@@ -38,8 +39,11 @@ public class CDriver : MonoBehaviour {
 
   public AudioSource Audio;
 
+  public GameObject ImageHolder;
+  public Texture2D image1;
+
   Dictionary<int, int> Heads = new Dictionary<int, int>(); //a mapping of SAPI viseme to MCS heads
-  SortedDictionary<int, int> Sequence = new SortedDictionary<int, int>();
+  SortedDictionary<int, double[]> Sequence = new SortedDictionary<int, double[]>();
 
   public bool Alive
   {
@@ -108,19 +112,30 @@ public class CDriver : MonoBehaviour {
 
   IEnumerator LoadAudio()
   {
-    string sPath = CurrentProject + "/audio.wav";
-    FileInfo fi = new FileInfo(sPath);
+    string sAudioPath = CurrentProject + "/audio.wav";
+    FileInfo fi = new FileInfo(sAudioPath);
     WWW www = new WWW("file://"+fi.FullName);
     yield return www;
     Audio.clip = www.audioClip;
     www.Dispose();
     print("loaded " + CurrentProject);
 
+    string sImagePath = CurrentProject + "/image1.jpg";
+    FileInfo fii = new FileInfo(sImagePath);
+    www = new WWW("file:" + fii.FullName);
+    yield return www;
+    image1 = www.texture;    
+        
+    //TextureScale.Bilinear(image1, 200, 200);
+    
+    Sprite sp  = Sprite.Create(image1, new Rect(0, 0, image1.width, image1.height), new Vector2(0, 0));
+    ImageHolder.GetComponent<Image>().sprite = sp;
+    www.Dispose();
+
   }
 
   void BeginTalking()
-  {
-    Audio.Play();
+  { 
     StopCoroutine(Preview());
     StartCoroutine(Preview());
     StrapLine.SetActive(true);
@@ -133,7 +148,7 @@ public class CDriver : MonoBehaviour {
 
   public void Render()
   {
-    int TotalTime = Sequence.Last().Value;
+    int TotalTime = (int)Sequence.Last().Value[0];
 
     SetHeadFromSAPIID(99,0);
     CurrentFrame = 0;
@@ -142,7 +157,7 @@ public class CDriver : MonoBehaviour {
 
       if (Sequence.Count > 0)
       {
-        SetHeadFromSAPIID(Sequence.First().Value, 100);
+        SetHeadFromSAPIID((int)Sequence.First().Value[0], 100);
         Sequence.Remove(Sequence.First().Key);
         SaveFrame();
       }
@@ -151,13 +166,22 @@ public class CDriver : MonoBehaviour {
     SetHeadFromSAPIID(99,0);
   }
 
+  string pad(string s, int amt)
+  {
+    while (s.Length < amt) s = "0" + s;
+    return s;
+  }
+
   IEnumerator Preview()
   {        
     System.Random n = new System.Random();
 
-    SortedDictionary<int, int> TempSequence = new SortedDictionary<int,int>(Sequence);
-    
-    
+    SortedDictionary<int, double[]> TempSequence = new SortedDictionary<int,double[]>(Sequence);
+
+    Marker.SetActive(true);
+    yield return new WaitForSeconds(0.2f);
+    Marker.SetActive(false);
+    Audio.Play();
 
     var stopwatch = new System.Diagnostics.Stopwatch();
     // Show object here
@@ -192,7 +216,7 @@ public class CDriver : MonoBehaviour {
       }
 
       CurrentFrame++;
-      DebugText.text = "B:" + BlinkTime + " H:" + HeadTime + " F:" + CurrentFrame;
+      DebugText.text = "B:" + pad(BlinkTime.ToString(),5) + " H:" + pad(HeadTime.ToString(),5) + " F:" + pad(CurrentFrame.ToString(),5);
 
       while ( CurrentSeqTime <= time + LipSyncTimeOffset)
       {
@@ -200,8 +224,10 @@ public class CDriver : MonoBehaviour {
         if (panic < 0) break;
 
         SetHeadFromSAPIID(99,0);
-        SetHeadFromSAPIID(TempSequence.First().Value, SpeakStrength);
-        DebugText.text += "  " + TempSequence.Count + "/" + Sequence.Count + " V:" + TempSequence.First().Key + ":" + TempSequence.First().Value;
+        SetHeadFromSAPIID((int)TempSequence.First().Value[0], SpeakStrength);
+        double sentiment = TempSequence.First().Value[1];
+        SetExpressionFromSentiment(sentiment);
+        DebugText.text += " |S:" + sentiment + "|  " + TempSequence.Count + "/" + Sequence.Count + " V:" + TempSequence.First().Key + ":" + TempSequence.First().Value;
         TempSequence.Remove(CurrentSeqTime);
         if (TempSequence.Count > 0)
         {
@@ -223,10 +249,18 @@ public class CDriver : MonoBehaviour {
     }
 
     print("done");
+    Marker.SetActive(true);
+    yield return new WaitForSeconds(0.2f);
+    Marker.SetActive(false);
 
     //Intro.SetActive(true);
     //yield return new WaitForSeconds(3.15f);
     //CancelInvoke("SaveFrame");
+  }
+
+  public virtual void SetExpressionFromSentiment(double d)
+  {
+
   }
 
   void SaveFrame()
@@ -245,12 +279,13 @@ public class CDriver : MonoBehaviour {
     yield return false;
   }
 
-  virtual public SortedDictionary<int, int> GetPhonemesFromFile(string path)
+  virtual public SortedDictionary<int, double[]> GetPhonemesFromFile(string path)
   {
     string CurrentFolder = Directory.GetCurrentDirectory();
     Debug.Log(CurrentFolder);
     string[] lines = File.ReadAllLines(path);
-        
+
+    double sentiment = 0;
     foreach (string s in lines)
     {
       string[] pair = s.Split(' ');
@@ -259,6 +294,7 @@ public class CDriver : MonoBehaviour {
       if (part == "W")
       {
         string CurrentWord = pair[1];
+        if ( pair.Count()>2) sentiment = Convert.ToDouble(pair[2]);
       }
       if (part == "V")
       {
@@ -266,7 +302,10 @@ public class CDriver : MonoBehaviour {
         int head = Convert.ToInt32(pair[2]);
         if (!Sequence.ContainsKey(ms))
         {
-          Sequence.Add(ms, head);
+          double[] items = new double[2];
+          items[0] = head;
+          items[1] = sentiment;
+          Sequence.Add(ms, items);
         }
         else
         {

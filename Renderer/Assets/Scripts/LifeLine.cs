@@ -4,6 +4,10 @@ using System.Collections;
 
 public class LifeLine : MonoBehaviour {
 
+  public bool RX = false;
+  public bool RY = false;
+  public bool RZ = false;
+
   public string Morph;
 
   public Transform Target;
@@ -36,6 +40,11 @@ public class LifeLine : MonoBehaviour {
     return Driver * Multiplier;
   }
 
+  public void Reset()
+  {
+
+  }
+
   public void Step(float timedelta)
   {
     if( state == 1 )
@@ -60,13 +69,19 @@ public class LifeLine : MonoBehaviour {
       {
         Direction = -1;
         state = 1;
-        TargetRotation *= Quaternion.Euler((float)rnd.NextDouble() * Multiplier - (Multiplier * 2), 0, 0);
+        TargetRotation *= Quaternion.Euler(
+          RX?(float)rnd.NextDouble() * Multiplier - (Multiplier * 2):0,
+          RY ? (float)rnd.NextDouble() * Multiplier - (Multiplier * 2) : 0,
+          RZ ? (float)rnd.NextDouble() * Multiplier - (Multiplier * 2) : 0);
       }
       if (Driver < 0)
       {
         state = 1;
         Direction = 1;
-        TargetRotation *= Quaternion.Euler((float)rnd.NextDouble() * Multiplier - (Multiplier * 2), 0, 0);
+        TargetRotation *= Quaternion.Euler(
+          RX?(float)rnd.NextDouble() * Multiplier - (Multiplier * 2):0,
+          RY ? (float)rnd.NextDouble() * Multiplier - (Multiplier * 2) : 0,
+          RZ ? (float)rnd.NextDouble() * Multiplier - (Multiplier * 2) : 0);
       }      
     }
 

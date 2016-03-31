@@ -15,8 +15,11 @@ public class Driver3d : CDriver
   Quaternion NextHeadRotation;
   public Transform Neck;
 
-    
+  public LifeLine SentimentPositive;
+  public LifeLine SentimentNegative;
   public LifeLine[] LifeLines;
+
+  public double sentiment = 0;
 
   public void Test()
   {
@@ -45,10 +48,13 @@ public class Driver3d : CDriver
     man.SetBlendshapeValue("PHMEyesClosedR", 0);
     man.SetBlendshapeValue("PHMEyesClosedL", 0);
    // Debug.Log("/Blink");
-
-
     HeadMotion1();
     
+  }
+
+  public override void SetExpressionFromSentiment(double d)
+  {
+    sentiment = d;
   }
 
   public override IEnumerator HeadMotion()
@@ -223,7 +229,20 @@ public class Driver3d : CDriver
       line.Step(Time.deltaTime);
       man.SetBlendshapeValue(line.Morph, line.Value());
     }
-    
+
+    if (sentiment > 0)
+    {
+      SentimentPositive.Step(Time.deltaTime);      
+      man.SetBlendshapeValue(SentimentPositive.Morph, (float)sentiment * SentimentPositive.Value());
+      man.SetBlendshapeValue(SentimentNegative.Morph, 0);
+    }
+    if (sentiment < 0)
+    {
+      SentimentNegative.Step(Time.deltaTime);
+      man.SetBlendshapeValue(SentimentPositive.Morph, 0);
+      man.SetBlendshapeValue(SentimentNegative.Morph, -(float)sentiment* SentimentNegative.Value());
+    }
+
 
   }
 }

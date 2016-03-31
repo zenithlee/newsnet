@@ -1,0 +1,214 @@
+fileFormatVersion: 2
+guid: 861272f63c89aaf4f8edfdc9f965d271
+timeCreated: 1459275553
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Desk_Pedestal
+    100002: ID104
+    100004: ID120
+    100006: ID126
+    100008: ID142
+    100010: ID148
+    100012: ID154
+    100014: ID160
+    100016: ID173
+    100018: ID179
+    100020: ID18
+    100022: ID185
+    100024: ID26
+    100026: ID34
+    100028: ID40
+    100030: ID56
+    100032: ID62
+    100034: ID68
+    100036: ID74
+    100038: ID80
+    100040: ID86
+    100042: ID92
+    100044: ID98
+    100046: instance_0
+    100048: instance_1
+    100050: instance_2
+    100052: instance_3
+    100054: Last Saved SketchUp View
+    100056: Lighting_Accents
+    100058: Main_Set
+    100060: //RootNode
+    100062: News_Desk
+    400000: Desk_Pedestal
+    400002: ID104
+    400004: ID120
+    400006: ID126
+    400008: ID142
+    400010: ID148
+    400012: ID154
+    400014: ID160
+    400016: ID173
+    400018: ID179
+    400020: ID18
+    400022: ID185
+    400024: ID26
+    400026: ID34
+    400028: ID40
+    400030: ID56
+    400032: ID62
+    400034: ID68
+    400036: ID74
+    400038: ID80
+    400040: ID86
+    400042: ID92
+    400044: ID98
+    400046: instance_0
+    400048: instance_1
+    400050: instance_2
+    400052: instance_3
+    400054: Last Saved SketchUp View
+    400056: Lighting_Accents
+    400058: Main_Set
+    400060: //RootNode
+    400062: News_Desk
+    2300000: Desk_Pedestal
+    2300002: ID104
+    2300004: ID120
+    2300006: ID126
+    2300008: ID142
+    2300010: ID148
+    2300012: ID154
+    2300014: ID160
+    2300016: ID173
+    2300018: ID179
+    2300020: ID18
+    2300022: ID185
+    2300024: ID26
+    2300026: ID34
+    2300028: ID40
+    2300030: ID56
+    2300032: ID62
+    2300034: ID68
+    2300036: ID74
+    2300038: ID80
+    2300040: ID86
+    2300042: ID92
+    2300044: ID98
+    2300046: Lighting_Accents
+    2300048: Main_Set
+    2300050: News_Desk
+    3300000: Desk_Pedestal
+    3300002: ID104
+    3300004: ID120
+    3300006: ID126
+    3300008: ID142
+    3300010: ID148
+    3300012: ID154
+    3300014: ID160
+    3300016: ID173
+    3300018: ID179
+    3300020: ID18
+    3300022: ID185
+    3300024: ID26
+    3300026: ID34
+    3300028: ID40
+    3300030: ID56
+    3300032: ID62
+    3300034: ID68
+    3300036: ID74
+    3300038: ID80
+    3300040: ID86
+    3300042: ID92
+    3300044: ID98
+    3300046: Lighting_Accents
+    3300048: Main_Set
+    3300050: News_Desk
+    4300000: News_Desk
+    4300002: ID18
+    4300004: ID26
+    4300006: ID34
+    4300008: ID40
+    4300010: Lighting_Accents
+    4300012: ID56
+    4300014: ID62
+    4300016: ID68
+    4300018: ID74
+    4300020: ID80
+    4300022: ID86
+    4300024: ID92
+    4300026: ID98
+    4300028: ID104
+    4300030: Desk_Pedestal
+    4300032: ID120
+    4300034: ID126
+    4300036: Main_Set
+    4300038: ID142
+    4300040: ID148
+    4300042: ID154
+    4300044: ID160
+    4300046: ID173
+    4300048: ID179
+    4300050: ID185
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -147,7 +147,7 @@
             
         }
         Visemes.Text += s + " " + sentiment + "\r\n";
-        items.Add(s); 
+        items.Add(s + " " + sentiment + "\r\n"); 
     }
 
     private void voicebox_SelectedValueChanged(object sender, EventArgs e)
