@@ -69,19 +69,19 @@ public class LifeLine : MonoBehaviour {
       {
         Direction = -1;
         state = 1;
-        TargetRotation *= Quaternion.Euler(
-          RX?(float)rnd.NextDouble() * Multiplier - (Multiplier * 2):0,
-          RY ? (float)rnd.NextDouble() * Multiplier - (Multiplier * 2) : 0,
-          RZ ? (float)rnd.NextDouble() * Multiplier - (Multiplier * 2) : 0);
+        TargetRotation *= Quaternion.Euler(          
+          RX?(float)rnd.NextDouble() * Multiplier - (Multiplier / 2):0,
+          RY ? (float)rnd.NextDouble() * Multiplier - (Multiplier / 2) : 0,
+          RZ ? (float)rnd.NextDouble() * Multiplier - (Multiplier / 2) : 0);
       }
       if (Driver < 0)
       {
         state = 1;
         Direction = 1;
         TargetRotation *= Quaternion.Euler(
-          RX?(float)rnd.NextDouble() * Multiplier - (Multiplier * 2):0,
-          RY ? (float)rnd.NextDouble() * Multiplier - (Multiplier * 2) : 0,
-          RZ ? (float)rnd.NextDouble() * Multiplier - (Multiplier * 2) : 0);
+          RX?(float)rnd.NextDouble() * Multiplier - (Multiplier / 2):0,
+          RY ? (float)rnd.NextDouble() * Multiplier - (Multiplier / 2) : 0,
+          RZ ? (float)rnd.NextDouble() * Multiplier - (Multiplier / 2) : 0);
       }      
     }
 
