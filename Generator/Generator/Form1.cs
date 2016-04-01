@@ -21,14 +21,13 @@
   string path = "../Output/";
   string CurrentFile = "test";
   string CurrentProject;
-  string SentimentFile = "../Data/sentiments.csv";
+  string SentimentFile = "../Data/sentiments2.csv";
   Dictionary<string, float> Sentiments = new Dictionary<string, float>();
 
   SpeechSynthesizer reader;
   List<string> items = new List<string>();
   List<string> missing = new List<string>();
-   public BindingSource source = new BindingSource();
-  
+  public BindingSource source = new BindingSource();
         
   string VoiceName = "";
   public Analysis()
@@ -68,6 +67,7 @@
       {
           string[] pair = item.Split(',');
           string sword = pair[0];
+        if (pair[1] == "") pair[1] = "0";
           float value = (float)Convert.ToDouble(pair[1]);
               if ( !Sentiments.ContainsKey(sword)) { 
                   Sentiments.Add(sword, value);
@@ -299,8 +299,7 @@
       string test= "This is extra <prosody pitch=\"-10\">extra</prosody> low pitch. ";
       pb.AppendSsmlMarkup(test);
       pb.EndVoice();
-      pb.AppendSsmlMarkup("</voice>");
-      
+      pb.AppendSsmlMarkup("</voice>");      
       
       reader.Speak(pb);
     }
