@@ -65,7 +65,7 @@
       string[] items = File.ReadAllLines(SentimentFile);
       foreach( string item in items)
       {
-          string[] pair = item.Split(';');
+          string[] pair = item.Split(',');
           string sword = pair[0];
         if (pair[1] == "") pair[1] = "0";
           float value = (float)Convert.ToDouble(pair[1]);

@@ -15,8 +15,15 @@ public class Driver3d : CDriver
   Quaternion NextHeadRotation;
   public Transform Neck;
 
-    
+  public LifeLine SentimentPositive;
+  public float SentiPos = 0;
+  public float MaxSentiPos = 0.5f;
+  public LifeLine SentimentNegative;
+  public float SentiNeg = 0;
+  public float MaxSentiNeg = 0.5f;
   public LifeLine[] LifeLines;
+
+  public double sentiment = 0;
 
   public void Test()
   {
@@ -45,10 +52,13 @@ public class Driver3d : CDriver
     man.SetBlendshapeValue("PHMEyesClosedR", 0);
     man.SetBlendshapeValue("PHMEyesClosedL", 0);
    // Debug.Log("/Blink");
-
-
     HeadMotion1();
     
+  }
+
+  public override void SetExpressionFromSentiment(double d)
+  {
+    sentiment = d;
   }
 
   public override IEnumerator HeadMotion()
@@ -223,7 +233,34 @@ public class Driver3d : CDriver
       line.Step(Time.deltaTime);
       man.SetBlendshapeValue(line.Morph, line.Value());
     }
-    
+
+    if (sentiment > 0.1)
+    {
+      SentiPos += Time.deltaTime;
+      if (SentiPos > MaxSentiPos) SentiPos = MaxSentiPos;
+
+      SentiNeg -= Time.deltaTime * 2;
+      if (SentiNeg < 0) SentiNeg = 0;
+
+    } else 
+    if (sentiment < -0.1)
+    {
+      SentiPos -= Time.deltaTime * 3;
+      if (SentiPos < 0) SentiPos = 0;
+      SentiNeg += Time.deltaTime;
+      if (SentiNeg > MaxSentiNeg) SentiNeg = MaxSentiNeg;            
+      
+    }
+    else
+    {
+      SentiPos *= 0.99f ;
+      SentiNeg *= 0.99f ;   
+      //man.SetBlendshapeValue(SentimentNegative.Morph, 0);
+      //man.SetBlendshapeValue(SentimentPositive.Morph, 0);
+    }
+    man.SetBlendshapeValue(SentimentPositive.Morph, (float)sentiment * SentiPos * 100);
+    man.SetBlendshapeValue(SentimentNegative.Morph, -(float)sentiment * SentiNeg * 100);
+
 
   }
 }
