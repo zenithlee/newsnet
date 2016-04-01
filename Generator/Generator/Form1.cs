@@ -148,7 +148,7 @@
       }
       else
       {
-        sentiment = -1;
+        sentiment = 0;
         if (!missing.Contains(slower))
         {
             missing.Add(slower);

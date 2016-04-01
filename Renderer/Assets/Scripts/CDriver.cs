@@ -227,7 +227,7 @@ public class CDriver : MonoBehaviour {
         SetHeadFromSAPIID((int)TempSequence.First().Value[0], SpeakStrength);
         double sentiment = TempSequence.First().Value[1];
         SetExpressionFromSentiment(sentiment);
-        DebugText.text += " |S:" + sentiment + "|  " + TempSequence.Count + "/" + Sequence.Count + " V:" + TempSequence.First().Key + ":" + TempSequence.First().Value;
+        DebugText.text += " |S:" + sentiment + "|  " + TempSequence.Count + "/" + Sequence.Count + " V:" + TempSequence.First().Key.ToString() + ":" + TempSequence.First().Value;
         TempSequence.Remove(CurrentSeqTime);
         if (TempSequence.Count > 0)
         {

@@ -239,16 +239,16 @@ public class Driver3d : CDriver
       SentiPos += Time.deltaTime;
       if (SentiPos > MaxSentiPos) SentiPos = MaxSentiPos;
 
-      SentiNeg -= Time.deltaTime * 2;
+      SentiNeg -= Time.deltaTime * 5;
       if (SentiNeg < 0) SentiNeg = 0;
 
     } else 
-    if (sentiment < -0.1)
+    if (sentiment < -0.2)
     {
       SentiPos -= Time.deltaTime * 3;
       if (SentiPos < 0) SentiPos = 0;
-      SentiNeg += Time.deltaTime;
-      if (SentiNeg > MaxSentiNeg) SentiNeg = MaxSentiNeg;            
+      SentiNeg += Time.deltaTime * 0.5f;
+      if (SentiNeg > MaxSentiNeg) SentiNeg = MaxSentiNeg;
       
     }
     else
