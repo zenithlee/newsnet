@@ -118,8 +118,7 @@ public class Driver3d : CDriver
         //man.SetBlendshapeValue("VSMAA", 100);
         break;
       case 2:
-        man.GetBlendshapeByID("VSMAA").AdjustValue(v);
-        man.SetBlendshapeValue("VSMAA", 100);
+        man.GetBlendshapeByID("VSMAA").AdjustValue(v);        
         break;
       case 3:
         man.GetBlendshapeByID("VSMOW").AdjustValue(v);
@@ -170,15 +169,15 @@ public class Driver3d : CDriver
         //man.SetBlendshapeValue("VSML", 100);
         break;
       case 15:
-        man.GetBlendshapeByID("VSMS").AdjustValue(v);
+        man.GetBlendshapeByID("VSMS").AdjustValue(v*0.75f);
         //man.SetBlendshapeValue("VSMS", 100);        
         break;
       case 16:
-        man.GetBlendshapeByID("VSMSH").AdjustValue(v);
+        man.GetBlendshapeByID("VSMSH").AdjustValue(v*0.75f);
         //man.SetBlendshapeValue("VSMSH", 100);
         break;
       case 17:
-        man.GetBlendshapeByID("VSMTH").AdjustValue(v);
+        man.GetBlendshapeByID("VSMTH").AdjustValue(v*0.8f);
         //man.SetBlendshapeValue("VSMTH", 100);
         break;
       case 18:
@@ -187,6 +186,7 @@ public class Driver3d : CDriver
         break;
       case 19:
         man.GetBlendshapeByID("VSMT").AdjustValue(v);
+        man.GetBlendshapeByID("VSMER").AdjustValue(v*0.5f);
         //man.SetBlendshapeValue("VSMT", 100);
         break;
       case 20:

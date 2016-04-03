@@ -42,6 +42,8 @@ public class CDriver : MonoBehaviour {
   public GameObject ImageHolder;
   public Texture2D image1;
 
+  public Camera IntroCam;
+
   Dictionary<int, int> Heads = new Dictionary<int, int>(); //a mapping of SAPI viseme to MCS heads
   SortedDictionary<int, double[]> Sequence = new SortedDictionary<int, double[]>();
 
@@ -136,6 +138,7 @@ public class CDriver : MonoBehaviour {
 
   void BeginTalking()
   { 
+
     StopCoroutine(Preview());
     StartCoroutine(Preview());
     StrapLine.SetActive(true);
@@ -177,6 +180,8 @@ public class CDriver : MonoBehaviour {
     System.Random n = new System.Random();
 
     SortedDictionary<int, double[]> TempSequence = new SortedDictionary<int,double[]>(Sequence);
+
+    IntroCam.gameObject.SetActive(true);
 
     Marker.SetActive(true);
     yield return new WaitForSeconds(0.2f);
@@ -250,7 +255,7 @@ public class CDriver : MonoBehaviour {
 
     print("done");
     Marker.SetActive(true);
-    yield return new WaitForSeconds(0.2f);
+    yield return new WaitForSeconds(0.5f);
     Marker.SetActive(false);
 
     //Intro.SetActive(true);

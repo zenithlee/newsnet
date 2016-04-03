@@ -202,6 +202,7 @@ ModelImporter:
     4300012: G2FSimplifiedEyes_394.Shape_LOD0
     4300014: G2FSimplifiedEyes_394.Shape_LOD1
     9500000: //RootNode
+    11100000: //RootNode
     11400000: G2FSimplifiedEyes
     11400002: G2FSimplifiedEyes_394.Shape_LOD0
     11400004: G2FSimplifiedEyes_394.Shape_LOD1
@@ -279,7 +280,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human:
@@ -721,7 +722,7 @@ ModelImporter:
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
-    - name: Genesis2Female
+    - name: Genesis 2 Female
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
@@ -858,7 +859,7 @@ ModelImporter:
       transformModified: 1
     - name: rSmallToe2
       position: {x: 0.011253204, y: 0.0037823485, z: 0.015853032}
-      rotation: {x: 0, y: 0, z: -2.7755576e-17, w: 1}
+      rotation: {x: 0, y: -0, z: -2.7755576e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: rSmallToe3
@@ -1173,12 +1174,12 @@ ModelImporter:
       transformModified: 1
     - name: rEye
       position: {x: 0.0313, y: 0.05827499, z: 0.07854562}
-      rotation: {x: 6.505213e-19, y: 0, z: -0, w: 1}
+      rotation: {x: 6.505213e-19, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: lEye
       position: {x: -0.0313, y: 0.05827499, z: 0.07854562}
-      rotation: {x: 6.505213e-19, y: 0, z: -0, w: 1}
+      rotation: {x: 6.505213e-19, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     armTwist: 0.5
