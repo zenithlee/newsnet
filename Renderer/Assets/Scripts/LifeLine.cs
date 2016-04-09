@@ -6,7 +6,7 @@ public class LifeLine : MonoBehaviour {
 
   public bool RX = false;
   public bool RY = false;
-  public bool RZ = false;
+  public bool RZ = false;  
 
   public string Morph;
 
@@ -43,7 +43,7 @@ public class LifeLine : MonoBehaviour {
   public void Reset()
   {
 
-  }
+  }  
 
   public void Step(float timedelta)
   {

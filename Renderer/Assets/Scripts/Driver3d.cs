@@ -23,6 +23,8 @@ public class Driver3d : CDriver
   public float MaxSentiNeg = 0.5f;
   public LifeLine[] LifeLines;
 
+  public MorphDriver _MorphDriver;
+
   public double sentiment = 0;
 
   public void Test()
@@ -236,31 +238,21 @@ public class Driver3d : CDriver
 
     if (sentiment > 0.1)
     {
-      SentiPos += Time.deltaTime;
-      if (SentiPos > MaxSentiPos) SentiPos = MaxSentiPos;
-
-      SentiNeg -= Time.deltaTime * 5;
-      if (SentiNeg < 0) SentiNeg = 0;
+      _MorphDriver.SetValue1((float)sentiment);            
 
     } else 
     if (sentiment < -0.2)
     {
-      SentiPos -= Time.deltaTime * 3;
-      if (SentiPos < 0) SentiPos = 0;
-      SentiNeg += Time.deltaTime * 0.5f;
-      if (SentiNeg > MaxSentiNeg) SentiNeg = MaxSentiNeg;
-      
+      _MorphDriver.SetValue2(-(float)sentiment);
     }
-    else
-    {
-      SentiPos *= 0.99f ;
-      SentiNeg *= 0.99f ;   
-      //man.SetBlendshapeValue(SentimentNegative.Morph, 0);
-      //man.SetBlendshapeValue(SentimentPositive.Morph, 0);
-    }
-    man.SetBlendshapeValue(SentimentPositive.Morph, (float)sentiment * SentiPos * 100);
-    man.SetBlendshapeValue(SentimentNegative.Morph, -(float)sentiment * SentiNeg * 100);
+    else {
+      _MorphDriver.SetValue1(0);
+      _MorphDriver.SetValue2(0);
+      _MorphDriver.SetValue3(0);
+    };
 
+    man.SetBlendshapeValue(_MorphDriver.Morph1, (float)_MorphDriver.Value1()*100);
+    man.SetBlendshapeValue(_MorphDriver.Morph2, (float)_MorphDriver.Value2() * 100);
 
   }
 }

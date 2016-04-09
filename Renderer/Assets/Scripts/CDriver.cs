@@ -13,6 +13,7 @@ public class CDriver : MonoBehaviour {
   public Text DebugText;
 
   public Text Headline;
+  public Text Strapline;
 
   public GameObject StrapLine;
   public GameObject Intro;
@@ -98,6 +99,15 @@ public class CDriver : MonoBehaviour {
     print("loading " + CurrentProject);
     TitleText.text = File.ReadAllText(CurrentProject + "headline.txt");
     Headline.text = File.ReadAllText(CurrentProject + "headline.txt");
+    if ( File.Exists( CurrentProject + "strapline.txt"))
+    {
+      Strapline.text = File.ReadAllText(CurrentProject + "strapline.txt");
+    }
+    else
+    {
+      Strapline.text = Headline.text;
+    }
+    
     GetPhonemesFromFile(CurrentProject + "sequence.txt");
     StartCoroutine(LoadAudio());
   }
@@ -182,6 +192,7 @@ public class CDriver : MonoBehaviour {
     SortedDictionary<int, double[]> TempSequence = new SortedDictionary<int,double[]>(Sequence);
 
     IntroCam.gameObject.SetActive(true);
+    yield return new WaitForSeconds(2.2f);
 
     Marker.SetActive(true);
     yield return new WaitForSeconds(0.2f);
