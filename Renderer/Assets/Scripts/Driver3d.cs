@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 using MORPH3D;
@@ -21,11 +22,8 @@ public class Driver3d : CDriver
   public LifeLine SentimentNegative;
   public float SentiNeg = 0;
   public float MaxSentiNeg = 0.5f;
-  public LifeLine[] LifeLines;
-
-  public MorphDriver _MorphDriver;
-
-  public double sentiment = 0;
+  public GameObject LifeLineHolder;
+  public double sentiment = 0;  
 
   public void Test()
   {
@@ -35,6 +33,7 @@ public class Driver3d : CDriver
     foreach(CoreBlendshape name in names)
     {
       Debug.Log(name.ID);
+      DebugText.text += name.ID + ",";
     }   
     
     CoreBlendshape cbs = man.GetBlendshapeByID("VSMAA");
@@ -44,6 +43,7 @@ public class Driver3d : CDriver
     man.SetBlendshapeValue("VSMTH", 128);
   }
 
+  /*
   public override IEnumerator Blink() {
   //  Debug.Log("Blink");
     for (int f= 0; f < 100; f+=20) {
@@ -57,6 +57,7 @@ public class Driver3d : CDriver
     HeadMotion1();
     
   }
+  */
 
   public override void SetExpressionFromSentiment(double d)
   {
@@ -230,29 +231,18 @@ public class Driver3d : CDriver
     //Neck.transform.localRotation = Quaternion.Lerp(Neck.transform.localRotation, NextHeadRotation, Time.deltaTime);
     Neck.transform.localRotation = Quaternion.Slerp(Neck.transform.localRotation, NextHeadRotation, Time.deltaTime);
 
+    LifeLine[] LifeLines = GetComponentsInChildren<LifeLine>();
     foreach( LifeLine line in LifeLines)
     {
       line.Step(Time.deltaTime);
-      man.SetBlendshapeValue(line.Morph, line.Value());
-    }
-
-    if (sentiment > 0.1)
-    {
-      _MorphDriver.SetValue1((float)sentiment);            
-
-    } else 
-    if (sentiment < -0.2)
-    {
-      _MorphDriver.SetValue2(-(float)sentiment);
-    }
-    else {
-      _MorphDriver.SetValue1(0);
-      _MorphDriver.SetValue2(0);
-      _MorphDriver.SetValue3(0);
-    };
-
-    man.SetBlendshapeValue(_MorphDriver.Morph1, (float)_MorphDriver.Value1()*100);
-    man.SetBlendshapeValue(_MorphDriver.Morph2, (float)_MorphDriver.Value2() * 100);
+      if ( line.DriveSentiment ) { 
+        line.SetSentiment((float)sentiment);
+      }
+      if ( line.DriveMorphs ) { 
+        man.SetBlendshapeValue(line.Morph1.ToString(), line.Value());
+        man.SetBlendshapeValue(line.Morph2.ToString(), line.Value());
+      }
+    }    
 
   }
 }

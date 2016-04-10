@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 557e0dc4eff019b4f8a90fd7372e68e3
-timeCreated: 1459888058
+timeCreated: 1460268453
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -340,14 +340,6 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: rCollar
-      humanName: RightShoulder
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
     - boneName: rShldr
       humanName: RightUpperArm
       limit:
@@ -398,14 +390,6 @@ ModelImporter:
         modified: 0
     - boneName: lEye
       humanName: LeftEye
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: lCollar
-      humanName: LeftShoulder
       limit:
         min: {x: 0, y: 0, z: 0}
         max: {x: 0, y: 0, z: 0}
@@ -791,12 +775,12 @@ ModelImporter:
       transformModified: 1
     - name: lShldr
       position: {x: -0.1232905, y: -0.0027210999, z: -0.050567187}
-      rotation: {x: -1.3660947e-17, y: 1.3877788e-17, z: -1.1248598e-18, w: 1}
+      rotation: {x: -1.3572321e-17, y: -0.0055590654, z: -0.0024736074, w: 0.9999815}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: lForeArm
       position: {x: -0.29446268, y: -0.011371002, z: 0.02555467}
-      rotation: {x: -1.3389897e-17, y: 8.326673e-17, z: -5.556536e-18, w: 1}
+      rotation: {x: 0.00096086995, y: -0.19274716, z: 0.0006525307, w: 0.9812478}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: lHand
@@ -816,7 +800,7 @@ ModelImporter:
       transformModified: 1
     - name: lIndex2
       position: {x: -0.027050857, y: 0.001508026, z: 0.020403193}
-      rotation: {x: -6.938894e-17, y: 8.326673e-17, z: -1.2143064e-17, w: 1}
+      rotation: {x: -0.059719115, y: 0.0033261774, z: -0.079422385, w: 0.99504507}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: lIndex3
@@ -831,7 +815,7 @@ ModelImporter:
       transformModified: 1
     - name: lMid2
       position: {x: -0.033153534, y: 0.0010440063, z: 0.017558994}
-      rotation: {x: -1.3877788e-16, y: 2.7755576e-17, z: -2.0816682e-17, w: 1}
+      rotation: {x: -0.026978757, y: -0.017316518, z: -0.0499096, w: 0.99823916}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: lMid3
@@ -846,12 +830,12 @@ ModelImporter:
       transformModified: 1
     - name: lPinky1
       position: {x: -0.05369705, y: -0.009395904, z: 0.007938776}
-      rotation: {x: -1.3877788e-16, y: 5.551115e-17, z: 3.1225023e-17, w: 1}
+      rotation: {x: -0.019071823, y: 0.07861084, z: -0.04848311, w: 0.9955431}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: lPinky2
       position: {x: -0.02578865, y: -0.0019180297, z: 0.0070345975}
-      rotation: {x: -2.4980018e-16, y: 5.551115e-17, z: 1.110223e-16, w: 1}
+      rotation: {x: -0.013172093, y: -0.02992202, z: -0.05644678, w: 0.9978702}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: lPinky3
@@ -861,12 +845,12 @@ ModelImporter:
       transformModified: 1
     - name: lRing1
       position: {x: -0.053447723, y: 0.0015260314, z: 0.026800813}
-      rotation: {x: -1.6653345e-16, y: 5.551115e-17, z: 2.0816682e-17, w: 1}
+      rotation: {x: -0.011136415, y: 0.039848287, z: -0.026941027, w: 0.9987804}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: lRing2
       position: {x: -0.032511443, y: -0.0011889648, z: 0.011680498}
-      rotation: {x: -1.8041124e-16, y: -1.110223e-16, z: 6.2450045e-17, w: 1}
+      rotation: {x: -0.011969224, y: -0.016243704, z: -0.0349685, w: 0.9991848}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: lRing3
@@ -881,12 +865,12 @@ ModelImporter:
       transformModified: 1
     - name: lThumb1
       position: {x: -0.011798248, y: -0.0028401182, z: 0.029444512}
-      rotation: {x: -2.94903e-17, y: 2.7755576e-17, z: -1.110223e-16, w: 1}
+      rotation: {x: -0.061780468, y: -0.04630065, z: -0.010492966, w: 0.99696004}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: lThumb2
       position: {x: -0.0015442657, y: -0.0071459957, z: 0.040624797}
-      rotation: {x: -3.330669e-16, y: -2.7755576e-17, z: -1.110223e-16, w: 1}
+      rotation: {x: -0.029764023, y: 0.17658001, z: 0.029929306, w: 0.98338085}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: lThumb3
@@ -971,12 +955,12 @@ ModelImporter:
       transformModified: 1
     - name: rShldr
       position: {x: 0.1232905, y: -0.0027210999, z: -0.050567187}
-      rotation: {x: -1.26851654e-17, y: 6.9626e-35, z: -5.4887735e-18, w: 1}
+      rotation: {x: -1.26676515e-17, y: 0.0055590654, z: 0.0024736074, w: 0.9999815}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: rForeArm
       position: {x: 0.29446268, y: -0.011371002, z: 0.02555467}
-      rotation: {x: -1.2576745e-17, y: 1.3877788e-16, z: 1.6805134e-18, w: 1}
+      rotation: {x: 0.00096086995, y: 0.19274716, z: -0.0006525307, w: 0.9812478}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: rHand
@@ -996,7 +980,7 @@ ModelImporter:
       transformModified: 1
     - name: rIndex2
       position: {x: 0.027050857, y: 0.001508026, z: 0.020403193}
-      rotation: {x: 1.0408341e-17, y: -2.220446e-16, z: -6.071532e-17, w: 1}
+      rotation: {x: -0.059719115, y: -0.0033261774, z: 0.079422385, w: 0.99504507}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: rIndex3
@@ -1011,7 +995,7 @@ ModelImporter:
       transformModified: 1
     - name: rMid2
       position: {x: 0.033153534, y: 0.0010440063, z: 0.017558994}
-      rotation: {x: -1.110223e-16, y: -2.220446e-16, z: 1.3877788e-17, w: 1}
+      rotation: {x: -0.026978757, y: 0.017316518, z: 0.0499096, w: 0.99823916}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: rMid3
@@ -1026,12 +1010,12 @@ ModelImporter:
       transformModified: 1
     - name: rPinky1
       position: {x: 0.05369705, y: -0.009395904, z: 0.007938776}
-      rotation: {x: -1.3877788e-16, y: -1.110223e-16, z: -5.2041704e-17, w: 1}
+      rotation: {x: -0.019071823, y: -0.07861084, z: 0.04848311, w: 0.9955431}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: rPinky2
       position: {x: 0.02578865, y: -0.0019180297, z: 0.0070345975}
-      rotation: {x: -3.6082248e-16, y: -1.9428903e-16, z: -1.4571677e-16, w: 1}
+      rotation: {x: -0.013172093, y: 0.02992202, z: 0.05644678, w: 0.9978702}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: rPinky3
@@ -1041,12 +1025,12 @@ ModelImporter:
       transformModified: 1
     - name: rRing1
       position: {x: 0.053447723, y: 0.0015260314, z: 0.026800813}
-      rotation: {x: -2.0816682e-16, y: -1.6653345e-16, z: -8.326673e-17, w: 1}
+      rotation: {x: -0.011136415, y: -0.039848287, z: 0.026941027, w: 0.9987804}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: rRing2
       position: {x: 0.032511443, y: -0.0011889648, z: 0.011680498}
-      rotation: {x: -1.8041124e-16, y: -8.326673e-17, z: -4.1633363e-17, w: 1}
+      rotation: {x: -0.011969224, y: 0.016243704, z: 0.0349685, w: 0.9991848}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: rRing3
@@ -1061,12 +1045,12 @@ ModelImporter:
       transformModified: 1
     - name: rThumb1
       position: {x: 0.011798248, y: -0.0028401182, z: 0.029444512}
-      rotation: {x: -1.8388069e-16, y: -1.3877788e-16, z: 1.5265567e-16, w: 1}
+      rotation: {x: -0.061780468, y: 0.04630065, z: 0.010492966, w: 0.99696004}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: rThumb2
       position: {x: 0.0015442657, y: -0.0071459957, z: 0.040624797}
-      rotation: {x: 6.661338e-16, y: -2.7755576e-16, z: 1.110223e-16, w: 1}
+      rotation: {x: -0.029764023, y: -0.17658001, z: -0.029929306, w: 0.98338085}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: rThumb3

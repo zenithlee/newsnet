@@ -10,7 +10,7 @@ public class CDriver : MonoBehaviour {
 
   string sTitle = "Microsoft AI chatbot promptly becomes Nazi";
   public Text TitleText;
-  public Text DebugText;
+  public InputField DebugText;
 
   public Text Headline;
   public Text Strapline;
@@ -132,7 +132,8 @@ public class CDriver : MonoBehaviour {
     www.Dispose();
     print("loaded " + CurrentProject);
 
-    string sImagePath = CurrentProject + "/image1.jpg";
+    string sImagePath = CurrentProject + "/image1.png";
+    if (!File.Exists(sImagePath)) sImagePath = sImagePath = CurrentProject + "/image1.jpg";
     FileInfo fii = new FileInfo(sImagePath);
     www = new WWW("file:" + fii.FullName);
     yield return www;
